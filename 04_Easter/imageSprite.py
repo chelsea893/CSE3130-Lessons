@@ -9,6 +9,7 @@ class ImageSprite(MySprite):
         super().__init__()
         self.FILE_LOCATION = IMAGE_FILE
         self.SCREEN = pygame.image.load(self.FILE_LOCATION).convert_alpha()
+        self.X_FLIP = False
 
     # --- MODIFIER METHODS --- #
 
@@ -18,11 +19,11 @@ class ImageSprite(MySprite):
         self.SCREEN = pygame.transform.scale(self.SCREEN, (self.getWidth()//SCALE_X, self.getHeight()//SCALE_Y))
 
     def flipImageX(self,KEY_PRESSES):
-        if KEY_PRESSES[pygame.K_d] == 1 and not self.X_FLIP:
-            self.SCREEN = pygame.transformflip(self.SCREEN, True, False)
+        if KEY_PRESSES[pygame.K_d] == 1 and self.X_FLIP:
+            self.SCREEN = pygame.transform.flip(self.SCREEN, True, False)
             self.X_FLIP = False
         if KEY_PRESSES[pygame.K_a] == 1 and not self.X_FLIP:
-            self.SCREEN = pygame.transformflip(self.SCREEN, True, False)
+            self.SCREEN = pygame.transform.flip(self.SCREEN, True, False)
             self.X_FLIP = True
 
     def wasdMove(self, KEYPRESSES):

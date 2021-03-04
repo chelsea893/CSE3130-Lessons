@@ -20,9 +20,11 @@ if __name__ == "__main__":
     import sys
     from window import Window
 
+    pygame.init()
+
     WINDOW = Window()
     TEXT1 = Text()
-    pygame.init()
+
 
     while True:
         for event in pygame.event.get():

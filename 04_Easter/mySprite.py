@@ -56,7 +56,7 @@ class MySprite:
         return self.X
 
     def getY(self):
-        return selfY
+        return self.Y
 
     def getWidth(self):
         return self.SCREEN.get_rect().width
