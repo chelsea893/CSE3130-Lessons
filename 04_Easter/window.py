@@ -6,6 +6,7 @@ date-created: 2021-03-02
 
 import pygame
 from loader import Color
+from imageSprite import ImageSprite
 
 
 class Window:
@@ -16,6 +17,7 @@ class Window:
         self.HEIGHT = HEIGHT
         self.SCREEN_DIMESIONS = (self.WIDTH, self.HEIGHT)
         self.BACKGROUND = Color.GREY
+        self.BACKGROUND_IMAGE = None
         self.FRAME = pygame.time.Clock()
         self.SCREEN = pygame.display.set_mode(self.SCREEN_DIMESIONS)
         self.SCREEN.fill(self.BACKGROUND)
@@ -28,10 +30,22 @@ class Window:
         pygame.display.flip()
 
     def clearScreen(self):
-        self.SCREEN.fill(self.BACKGROUND)
+        if self.BACKGROUND_IMAGE is None:
+            self.SCREEN.fill(self.BACKGROUND)
+        else:
+            self.SCREEN.blit(self.BACKGROUND_IMAGE.getScreen(), self.BACKGROUND_IMAGE.getPOS())
 
     def setBackgroundColor(self,COLOR):
         self.BACKGROUND = COLOR
+        self.clearScreen()
+
+    def setBackgroundImage(self, IMAGE_FILE):
+        self.BACKGROUND_IMAGE = ImageSprite(IMAGE_FILE)
+        ## Scale the image to fit the windwo
+        if self.BACKGROUND_IMAGE.getWidth() < self.getVirtualWidth():
+            self.BACKGROUND_IMAGE.setScale(self.BACKGROUND_IMAGE.getWidth()/self.getVirtualWidth())
+        if self.BACKGROUND_IMAGE.getHeight() < self.getVirtualHeight():
+            self.BACGROUND_IMAGE.setScale(self.BACKGROUND_IMAGE.getHeight()/self.getVirtualHeight())
         self.clearScreen()
 
 

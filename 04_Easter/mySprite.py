@@ -11,6 +11,7 @@ class MySprite:
         self.HEIGHT = 0
         self.DIMENSION = (self.WIDTH, self.HEIGHT)
         self.SCREEN = None
+        self.RECT = None
         self.X = 0
         self.Y = 0
         self.POS = (self.X, self.Y)
@@ -63,4 +64,10 @@ class MySprite:
 
     def getHeight(self):
         return self.SCREEN.get_rect().height
+
+    def getRect(self):
+        self.RECT = self.SCREEN.get_rect()
+        self.RECT.x = self.X
+        self.RECT.y = self.Y
+        return self.RECT
 

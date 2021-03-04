@@ -6,3 +6,9 @@ class Color:
     GREEN = (0,255,0)
     BLUE = (0,0,255)
     MAGENTA = (255, 0, 255)
+
+class Image:
+    PLAYER = "assets/bunny.png"
+    BACKGROUND = "assets/grass.png"
+    SHRUB = "assets/shrubs.png"
+    EGGS = ["assets/egg1.png", "assets/egg2.png"]

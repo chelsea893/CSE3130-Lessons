@@ -14,6 +14,10 @@ class Text(MySprite):
         self.FONT = pygame.font.SysFont("Arial", 36)
         self.SCREEN = self.FONT.render(self.TEXT, True, self.COLOR)
 
+    def setText(self, NEW_TEXT):
+        self.TEXT = NEW_TEXT
+        self.SCREEN = self.FONT.render(self.TEXT, True, self.COLOR)
+
 
 
 if __name__ == "__main__":
@@ -24,6 +28,7 @@ if __name__ == "__main__":
 
     WINDOW = Window()
     TEXT1 = Text()
+
 
 
     while True:

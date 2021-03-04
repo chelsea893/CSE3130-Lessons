@@ -16,7 +16,7 @@ class ImageSprite(MySprite):
     def setScale(self,  SCALE_X, SCALE_Y = 0):
         if SCALE_Y == 0:
             SCALE_Y = SCALE_X
-        self.SCREEN = pygame.transform.scale(self.SCREEN, (self.getWidth()//SCALE_X, self.getHeight()//SCALE_Y))
+        self.SCREEN = pygame.transform.scale(self.SCREEN, (int(self.getWidth()//SCALE_X), int(self.getHeight()//SCALE_Y)))
 
     def flipImageX(self,KEY_PRESSES):
         if KEY_PRESSES[pygame.K_d] == 1 and self.X_FLIP:
