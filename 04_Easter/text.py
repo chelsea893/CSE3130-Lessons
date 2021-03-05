@@ -18,6 +18,12 @@ class Text(MySprite):
         self.TEXT = NEW_TEXT
         self.SCREEN = self.FONT.render(self.TEXT, True, self.COLOR)
 
+    def setScale(self,  SCALE_X, SCALE_Y = 0):
+        if SCALE_Y == 0:
+            SCALE_Y = SCALE_X
+        self.SCREEN = pygame.transform.scale(self.SCREEN, (int(self.getWidth()//SCALE_X), int(self.getHeight()//SCALE_Y)))
+
+
 
 
 if __name__ == "__main__":

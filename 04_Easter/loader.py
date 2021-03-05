@@ -12,3 +12,4 @@ class Image:
     BACKGROUND = "assets/grass.png"
     SHRUB = "assets/shrubs.png"
     EGGS = ["assets/egg1.png", "assets/egg2.png"]
+    START = "assets/start.png"

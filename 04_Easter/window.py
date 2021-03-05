@@ -49,6 +49,7 @@ class Window:
         self.clearScreen()
 
 
+
     # --- ACCESSOR METHODS (GETTER) --- #
 
     def getScreen(self):
