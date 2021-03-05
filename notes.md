@@ -43,3 +43,26 @@ SIAMESE.cry() # meow!
 ```
 
 Note that both objects have the same method, but have different outputs. 
+
+## Public, Private and Protected Class Members
+Classical object-oriented programming languages, such as C++ and Java, control the access to class resources by public, private, and protected keywords.
+Private members (attributes/methods) of the class are denied access from the environment outside the class. They can be handled only from within the class. Controlling acces to members with a class increases the class's integrity only allowing access to certain members externally through encapsulation. 
+
+__Public Members__ are accesible outside the Class. In Python, all members are defaulted as public.
+
+__Protected Members__ are available to the class and its subclasses. They are denoted with an underscore at the beginning of the member name. Protected Members are still accessiblle outside of the class, but Python will throw a warning. 
+
+__Private Members__ are only avalible within the class. They are denoted a double underscore at the beginning of the member name. Private Members are not accessible outside the class. 
+
+```python
+class MyClass:
+    def__init__(self):
+        self.FIRST_NAME = "Chelsea" # Public
+        self._LAST_NAME = "Chen"
+        self._MID_INIT = "H" # Private
+
+    def _protectedMethods(self):
+        pass
+    def __privateMethod(self):
+        pass
+```

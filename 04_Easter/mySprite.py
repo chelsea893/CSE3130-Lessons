@@ -43,6 +43,25 @@ class MySprite:
             self.Y = self.Y + self.SPEED
         self.updatePOS()
 
+    def checkBoundaries(self, MAX_WIDTH, MAX_HEIGHT, MIN_WIDTH = 0, MIN_HEIGHT = 0):
+        if self.X > MAX_WIDTH - self.getWidth():
+            self.X = MAX_WIDTH -self.getWidth()
+        elif self.X < MIN_WIDTH:
+            self.X = MIN_WIDTH
+        if self.Y > MAX_HEIGHT - self.getHeight():
+            self.Y = MAX_HEIGHT -self.getHeight()
+        elif self.Y < MIN_HEIGHT:
+            self.Y = MIN_HEIGHT
+
+        self.updatePOS()
+
+    def wasdMoveChkBoundaries(self, KEYPRESSES, MAX_WIDTH, MAX_HEIGHT, MIN_WIDTH = 0, MIN_HEIGHT = 0):
+        self.wasdMove(KEYPRESSES)
+        self.checkBoundaries(MAX_WIDTH, MAX_HEIGHT, MIN_WIDTH, MIN_HEIGHT)
+
+    # --- ACCESSOR METHODS --- #
+
+
 
 
     # ---- ACCESSOR METHODS --- #
